@@ -1,0 +1,14 @@
+# Example config file, copy and rename this file to config.yml.
+
+# Vagrant config
+
+vagrant_box : debian/stretch64
+ip_address: 192.168.1.100
+
+
+# Python config
+python_version : 3.5
+
+# Django Project settings
+project_name: myproject
+django_version: 2.1.5
