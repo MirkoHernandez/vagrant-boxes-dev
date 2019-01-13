@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = config_data["vagrant_box"]
 
   # Network
-  config.vm.network "private_network", type: "dhcp"
+  config.vm.network "private_network", ip: config_data["ip_address"]
   config.vm.network  "forwarded_port", guest: 8000, host: 8000
 
   # Shared folders
