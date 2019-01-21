@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'yaml'
+
+# Load  conf.yml.
+config_data = begin
+  puts "conf.yml parsing ..."
+  YAML.load_file('conf.yml')
+  rescue
+    STDERR.puts "conf.yml could not be loaded."
+    exit
+end
+
+# Verify conf_data values
+puts config_data.inspect
+
+# Vagrantfile 
+Vagrant.configure("2") do |config|
+  # Box
+  config.vm.box = config_data["vagrant_box"]
+
+  # Network
+  config.vm.network "private_network", ip: config_data["ip_address"]
+
+  # Provisioning
+  config.vm.provision "shell", path: "provisioning/provision-linux.sh" , privileged: false, args: config_data["postgres_version"].to_s
+  config.vm.provision "shell", path: "provisioning/provision-postgres.sh", args: config_data["postgres_version"].to_s + " " + config_data["database_user"].to_s + " " +  config_data["database_password"].to_s + " " +  config_data["database_name"].to_s
+end

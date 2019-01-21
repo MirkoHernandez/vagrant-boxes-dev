@@ -1,0 +1,17 @@
+# Example config file, copy and rename this file to config.yml.
+
+# Vagrant config
+
+vagrant_box : debian/stretch64
+ip_address: 192.168.1.101
+
+# Postgres config
+postgres_version: 9.6
+
+# Role (user)
+database_user: myuser
+database_password: dbpassword
+
+# Database
+
+database_name: mydb
