@@ -3,7 +3,7 @@
 PYTHON_VERSION=$1
 
 # Install python
-sudo apt-get install python$PYTHON_VERSION python$PYTHON_VERSION-dev 
+sudo apt-get install -y python$PYTHON_VERSION python$PYTHON_VERSION-dev 
 
 # Install pip3
 wget -q https://bootstrap.pypa.io/get-pip.py
