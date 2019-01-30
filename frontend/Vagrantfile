@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 
   # Shared folders
   config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.synced_folder "node-projects", "/home/vagrant/node-projects"
+  config.vm.synced_folder "projects", "/home/vagrant/projects"
 
   # Provisioning
   config.vm.provision "shell", path: "provisioning/provision-linux.sh" , privileged: false
