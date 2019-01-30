@@ -29,8 +29,8 @@ mkdir -p ~vagrant/django-projects/$PROJECT_NAME
 cd ~vagrant/django-projects/$PROJECT_NAME
 setvirtualenvproject
 pwd
-cp /vagrant/provisioning/requeriments.txt .
-echo "VERSION DE DJANGO"
+touch  requeriments.txt 
+echo "DJANGO VERSION"
 echo $DJANGO_VERSION
 printf "django==${DJANGO_VERSION}\n" >> requeriments.txt
 
