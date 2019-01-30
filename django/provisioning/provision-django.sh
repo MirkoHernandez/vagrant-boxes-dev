@@ -25,8 +25,8 @@ workon $PROJECT_NAME
 
 # Create django project
 echo 'Creating django project ...'
-mkdir -p ~vagrant/django-projects/$PROJECT_NAME
-cd ~vagrant/django-projects/$PROJECT_NAME
+mkdir -p ~vagrant/projects/$PROJECT_NAME
+cd ~vagrant/projects/$PROJECT_NAME
 setvirtualenvproject
 pwd
 touch  requeriments.txt 
