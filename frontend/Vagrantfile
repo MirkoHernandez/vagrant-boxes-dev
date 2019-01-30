@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'yaml'
+
+# Load  conf.yml.
+config_data = begin
+  puts "conf.yml parsing ..."
+  YAML.load_file('conf.yml')
+  rescue
+    STDERR.puts "conf.yml could not be loaded."
+    exit
+end
+
+# Verify conf_data values
+puts config_data.inspect
+
+
+# Check for vagrant-notify-forwarded; required for watching file changes in shared folders.
+unless Vagrant.has_plugin?("vagrant-notify-forwarder")
+  puts 'Warning: vagrant-notify-forwarder is not installed'
+end
+
+Vagrant.configure("2") do |config|
+  # Box
+  config.vm.box = config_data["vagrant_box"] 
+
+  # Network
+  config.vm.network "private_network", ip: config_data["ip_address"]
+  config.vm.network "forwarded_port", guest: 3001, host: 3001
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+
+  # Shared folders
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vm.synced_folder "node-projects", "/home/vagrant/node-projects"
+
+  # Provisioning
+  config.vm.provision "shell", path: "provisioning/provision-linux.sh" , privileged: false
+  config.vm.provision "shell", path: "provisioning/provision-node.sh", privileged: false
+
+end
