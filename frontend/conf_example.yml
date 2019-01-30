@@ -1,0 +1,10 @@
+# Example config file, copy and rename this file to config.yml.
+
+# Vagrant config
+
+vagrant_box : debian/stretch64
+ip_address: 192.168.1.201
+
+# Elm project
+
+project_name: myproject
