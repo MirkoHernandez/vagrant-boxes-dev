@@ -1,0 +1,32 @@
+# Example config file, copy and rename this file to config.yml.
+
+# Vagrant config
+
+# Box
+vagrant_box: debian/stretch64
+
+# Localtime
+localtime: /usr/share/zoneinfo/America/Santiago
+
+# Ips
+ip_address: 192.168.1.100
+ip_address_database: 192.168.1.101
+
+
+# Python config
+python_version: 3.6
+
+# Django Project settings
+project_name: myproject
+django_version: 2.2
+
+# Postgres config
+postgres_version: 9.6
+
+# Role (user)
+database_user: myuser
+database_password: dbpassword
+
+# Database
+database_name: mydb
+database_port: 5432
