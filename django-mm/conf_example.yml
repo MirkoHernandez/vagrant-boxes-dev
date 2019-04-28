@@ -10,11 +10,11 @@ localtime: /usr/share/zoneinfo/America/Santiago
 
 # Ips
 ip_address: 192.168.1.100
-ip_address_database: 192.168.1.101
+ip_address_database: 192.168.1.110
 
 
 # Python config
-python_version: 3.6
+python_version: 3.5
 
 # Django Project settings
 project_name: myproject
