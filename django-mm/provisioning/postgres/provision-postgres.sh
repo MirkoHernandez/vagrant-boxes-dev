@@ -29,4 +29,6 @@ CREATE DATABASE $DB_NAME WITH OWNER=$DB_USER
                                   LC_CTYPE='en_US.utf8'
                                   ENCODING='UTF8'
                                   TEMPLATE=template0;
+-- Assign permissions to create database
+ALTER ROLE $DB_USER  CREATEDB;
 EOF
